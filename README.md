@@ -1,4 +1,4 @@
-# Network_Scanner
+# Network_Scanner [ZONIX]
 This the repo for my collage mini project- Network Scanning tool.
 
 This tool is the based on the basics of the netwoking.
