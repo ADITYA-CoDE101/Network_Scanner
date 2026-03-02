@@ -1,52 +1,48 @@
-# Network_Scanner [ZONIX]
-This the repo for my collage mini project- Network Scanning tool.
+# Network Scanner
 
-This tool is the based on the basics of the netwoking.
-This is pyhton language based tool.
-It is ment to illestrate the both faces of the a single coin by demonstating the functionalitie for
-offencive based activies and there counter measures (deffencive).
+## Project Overview
+The Network Scanner is a tool designed for network discovery and security auditing. It allows users to scan networks to identify active devices, services, and potential vulnerabilities.
 
-This tool covers some networking topic like :-
-  Network protocols,
-  Packate building and reading,
-  System and traffice monitoring,
-  and so on.
+## Features
+- Fast and efficient scanning of local and remote networks.
+- Detection of open ports and services on detected devices.
+- User-friendly command-line interface.
+- Extensive configuration options for advanced users.
+- Simple reporting features to log scan results.
 
-/*\---------------------------------------------------------------/*\
-    Help section
-    This is the Network scanning tool [ZoniX].
+## Installation
+To install the Network Scanner, follow these steps:
+1. Clone the repository using `git clone https://github.com/ADITYA-CoDE101/Network_Scanner.git`
+2. Navigate to the project directory: `cd Network_Scanner`
+3. Install the required dependencies using `pip install -r requirements.txt` (if Python is used).
 
-    It consists of two catagories:-
-        1-> Offencive
-        2-> Defensive
+## Usage
+- To perform a quick scan, use the following command:
+  ```bash
+  python scanner.py --quick [target]
+  ```
+- For a detailed scan, include additional flags:
+  ```bash
+  python scanner.py --detailed [target] --ports
+  ```
 
-    # Offencive :
-        if consist of Three main functions 
-            1-> Port Sacn
-            2-> Dns serveices scanning
-            3-> Dns Explorer
-    
-    # Defensive :
-        It consists of Four main functions :
-            1-> Port scan Detetion
-            2-> Dns scan Detetion
-            3-> Deception
-            4-> Monitoring [Network tarffic / device processes]
+## Commands
+- `--quick`: Scans for active devices quickly.
+- `--detailed`: Performs a comprehensive scan of specified ports.
+- `--report`: Generates a report of the scan results.
 
-    [/+\] Commands :
-            -h      Help
-            -pS     Port scan
-            -dS     Dns serveices scan
-            -dexp   Dns Explorer
-            -psD    Port scan detection
-            -dsD    Dns scan detection
-            --deception or -pd      Deception
-            -mo     Monitoring
-            -q      quit/ exit
-            --exit  quit/ exit
+## Architecture
+The Network Scanner utilizes a modular architecture consisting of:
+- **Scanner Module**: Core logic for scanning operations.
+- **Report Module**: Handles reporting of scan results.
+- **UI Module**: Manages user interactions through the command line.
 
-    Example :
+## Contributing
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with clear messages.
+4. Push your branch and submit a pull request.
 
-            ┌──(workspace$commnad)-[Current Time]
-            └─# Command
-/*\---------------------------------------------------------------/*\
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
