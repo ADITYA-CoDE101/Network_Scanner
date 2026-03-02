@@ -14,8 +14,9 @@ import workspace1 as wsp
 #ps.main("8.8.8.8","1-20")
 
 colorama.init(autoreset=True)
-print(pyfiglet.figlet_format("-by       ", justify="right", font="wideterm"))
-print(pyfiglet.figlet_format("Aditya", justify="right", font="digital"))
+print(pyfiglet.figlet_format("---------------------------------------------------", justify="center", font="wideterm"))
+print(pyfiglet.figlet_format("-by       ", justify="center", font="wideterm"))
+print(pyfiglet.figlet_format("Aditya", justify="center", font="digital"))
 print(pyfiglet.figlet_format("ZoniX", justify="center", font="bigmono9"))
 print(pyfiglet.figlet_format("Network Scanning Tool.", justify="center", font="mini"))
 # port scaner
