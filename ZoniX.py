@@ -8,14 +8,14 @@ from portScanDEtect import Delection
 from deception import Deception
 from DNS_expo import Dns_exploere
 from m2 import Monitor
-from workspace1 import Requirments
+# from workspace1 import Requirments
+import workspace1 as wsp
 #dns.dns_service_scanner("8.8.8.8", "google.com" )
 #ps.main("8.8.8.8","1-20")
+
 colorama.init(autoreset=True)
 print(pyfiglet.figlet_format("-by       ", justify="right", font="wideterm"))
 print(pyfiglet.figlet_format("Aditya", justify="right", font="digital"))
-print(pyfiglet.figlet_format("Vipul Dhiman", justify="right", font="digital"))
-print(pyfiglet.figlet_format("Varsha Rajbhar", justify="right", font="digital"))
 print(pyfiglet.figlet_format("ZoniX", justify="center", font="bigmono9"))
 print(pyfiglet.figlet_format("Network Scanning Tool.", justify="center", font="mini"))
 # port scaner
@@ -35,13 +35,16 @@ avtivation = True
 #         entry = f"{[datetime.now()]} {event}: {data}\n"
 #         f.write(entry)
 
-d = Delection()
+r = wsp.Requirments()
+r.workspace()
+
+d = Delection(r)
 pd = Deception()
 dx = Dns_exploere()
+m = Monitor(r)
 # workspace = str(input("Create a workspace-"
 #                       "\n Name - "))
-r = Requirments()
-r.workspace()
+
 
 while avtivation:
     cmd = input(f"┌──({Fore.YELLOW}{Style.BRIGHT}{r.dirName}$commnad)-[{Fore.WHITE}{Style.BRIGHT}~{datetime.now()}]"
@@ -89,7 +92,7 @@ while avtivation:
         target = str(input("Target>"))
         dx.run_DNS_Expl(target)
     elif cmd == "-mo":
-        m = Monitor()
+        
         m.worksp = r.dirName
         m.run_monitoring()
     elif cmd == "-h":

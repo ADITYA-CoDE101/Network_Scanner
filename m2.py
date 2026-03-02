@@ -6,10 +6,10 @@ import re
 import time
 from workspace1 import Requirments
 
-r = Requirments()
 data = []
 class Monitor:
-    def __init__(self):
+    def __init__(self, requirments):
+        self.r = requirments
         self.worksp = None
         self.location = "security_log.txt"
 
@@ -29,7 +29,7 @@ class Monitor:
                 if dst_port not in range(1, 1024):
                     data = ["Network Alert", f"Suspicious connection: {src_ip}:{src_port} -> {dst_ip}:{dst_port}"]
                     # log_event("Network Alert", f"Suspicious connection: {src_ip}:{src_port} -> {dst_ip}:{dst_port}")
-                    r.log(self.worksp, self.location,data)
+                    self.r.log(self.worksp, self.location,data)
                     self.notify_user("Network Alert", f"Suspicious connection detected: {src_ip}:{src_port} -> {dst_ip}:{dst_port}")
 
     # Alternative Process Monitoring Using /proc
@@ -45,13 +45,13 @@ class Monitor:
                             process_name = re.split(r'\\x00|\\0', cmdline)[0]
                             if process_name and process_name not in allowed_processes:
                                 data = ["Process Alert", f"Unauthorized process detected: {process_name} (PID: {pid})"]
-                                r.log(self.worksp, self.location, data)
+                                self.r.log(self.worksp, self.location, data)
                                 self.notify_user("Process Alert", f"Unauthorized process detected: {process_name}")
                     except (FileNotFoundError, PermissionError):
                         continue
         except Exception as e:
             data = [f"Process Alert",f"Process Monitoring Error {str(e)}"]
-            r.log(self.worksp, self.location, data)
+            self.r.log(self.worksp, self.location, data)
 
     def notify_user(self, title, message):
         """Send a desktop notification."""

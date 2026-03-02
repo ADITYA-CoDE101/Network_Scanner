@@ -6,9 +6,10 @@ import subprocess
 # from detected_ip import Detected_ip
 from workspace1 import Requirments
 
-r = Requirments()
+
 class Delection:
-    def __init__(self):
+    def __init__(self, requirments):
+        self.r = requirments
         self.PORT_SCAN_THRUSHOLD = 10
         self.DNS_SCAN_THRUSHOLD = 10
         self.MONITOR_INTERVAL = 10
@@ -17,10 +18,6 @@ class Delection:
         self.dst_port = None
         self.current_time = time.time()
         self.dirname  = None
-
-        
-
-    
     # def log_event(self,event_type, details):
     #     #Egvent logs
     #     d_ip = Detected_ip()
@@ -52,13 +49,13 @@ class Delection:
             if thrushold == self.PORT_SCAN_THRUSHOLD:
                 self.notify("Network Alert ",f"Potential Port Sacn Detected: {self.src_ip}:{self.dst_port}")
                 data = ["Network Alert ",f"Potential Port Sacn Detected: {self.src_ip}:{self.dst_port}"]
-                r.log(self.dirname, "Detection_log.txt", data)
+                self.r.log(self.dirname, "Detection_log.txt", data)
                 # self.log_event("Network Alert ",f"Potential Port Sacn Detected: {self.src_ip}:{self.dst_port}")
                 print(f"\t[ALERT] Potential port scan detected from IP: {self.src_ip}\n\n")
             elif thrushold == self.DNS_SCAN_THRUSHOLD:
                 self.notify("Network Alert ",f"Potential DNS Sacn Detected: {self.src_ip}")
                 data = ["Network Alert ",f"Potential DNS Sacn Detected: {self.src_ip}"]
-                r.log(self.dirname, "Detection_log.txt", data)
+                self.r.log(self.dirname, "Detection_log.txt", data)
                 # self.log_event("Network Alert ",f"Potential DNS Sacn Detected: {self.src_ip}")
                 print(f"\t[ALERT] Potential port scan detected from IP: {self.src_ip}\n\n")
 
